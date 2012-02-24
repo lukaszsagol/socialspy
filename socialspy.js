@@ -34,10 +34,10 @@ var socialSpy = {
 
 
     if (socialSpy.services.length > 0) {
-      if (socialSpy.waitForLoad) {
-        socialSpy.listen(window, 'load', socialSpy.installServices);
+      if (typeof socialSpy.waitForLoad === "number") {
+        setTimeout(socialSpy.installServices, socialSpy.waitForLoad);
       } else {
-        socialSpy.installServices();
+        socialSpy.listen(window, 'load', socialSpy.installServices);
       }
     } else {
       socialSpy.dbg('No services selected.');
