@@ -18,6 +18,9 @@ var socialSpy = {
   customSubmit: null,
 
   init: function(opts) {
+    if (opts == null) {
+      opts = {}
+    }
     socialSpy.debug = !!opts.debug;
     socialSpy.dbg('socialSpy init called with DEBUG');
     socialSpy.dbg("DON'T USE DEBUG IN PRODUCTION");
