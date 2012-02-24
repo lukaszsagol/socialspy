@@ -73,6 +73,10 @@ Default: undefined
 **debug** *Boolean* When true, script will ouput info about called
 functions straight to the Browser Console. Default: false
 
+**waitForLoad** *Boolean* When true, status checking will be attached to
+window 'load' event. Otherwise it will be called straight after calling
+init. Default: true
+
 ### Example of use
 
 ```javascript
@@ -113,7 +117,7 @@ Because of that, it is required that there is `FB.init` called somewhere
 on your page. If you still don't know what to do, please, read on...
 
 First thing you need is Facebook Application ID. To get it, create app, 
-as described in Step 1 of [this tutorial](https://developers.facebook.com/docs/opengraph/tutorial/#create-app). After getting your App ID, you need to put the code below somewhere on your page (with [YOUR_APP_ID] replaced with your App ID)
+as described in Step 1 of [this tutorial](https://developers.facebook.com/docs/opengraph/tutorial/#create-app). After getting your App ID, you need to put the code below somewhere on your page (with [YOUR\_APP\_ID] replaced with your App ID)
 
 ```html
 <div id="fb-root"></div>
@@ -136,6 +140,12 @@ as described in Step 1 of [this tutorial](https://developers.facebook.com/docs/o
 ```
 
 ## Information
+### History
+
+* v0.2 - added support for waitForLoad option
+* v0.1 - first version, yay!
+
+
 ### Bug reports
 If you find any errors, feel free to create issue on Github project
 page. You can also provide the idea how to fix it or even fork and fix

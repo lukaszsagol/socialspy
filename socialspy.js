@@ -16,6 +16,7 @@ var socialSpy = {
   services: [],
   debug: false,
   customSubmit: null,
+  waitForLoad: true,
 
   init: function(opts) {
     if (opts == null) {
@@ -28,11 +29,16 @@ var socialSpy = {
     socialSpy.services      = opts.services || ['facebook', 'twitter', 'google', 'gplus'];
     socialSpy.variableIndex = opts.variableIndex || 1;
     socialSpy.variableName  = opts.variableName || 'Social Spy';
+    socialSpy.waitForLoad   = typeof opts.waitForLoad === "undefined" ? true : opts.waitForLoad;
     socialSpy.customSubmit  = opts.customSubmit;
 
 
     if (socialSpy.services.length > 0) {
-      socialSpy.listen(window, 'load', socialSpy.installServices);
+      if (socialSpy.waitForLoad) {
+        socialSpy.listen(window, 'load', socialSpy.installServices);
+      } else {
+        socialSpy.installServices();
+      }
     } else {
       socialSpy.dbg('No services selected.');
     }
