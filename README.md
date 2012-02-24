@@ -73,9 +73,9 @@ Default: undefined
 **debug** *Boolean* When true, script will ouput info about called
 functions straight to the Browser Console. Default: false
 
-**waitForLoad** *Boolean* When true, status checking will be attached to
-window 'load' event. Otherwise it will be called straight after calling
-init. Default: true
+**waitForLoad** *Boolean/Integer* When value is a number, the status
+checking will be delayed for given time (in miliseconds). Otherwise
+(for true value) it will be attached to window 'load' event. Default: true
 
 ### Example of use
 
@@ -142,6 +142,7 @@ as described in Step 1 of [this tutorial](https://developers.facebook.com/docs/o
 ## Information
 ### History
 
+* v0.3 - waitForLoad now supports timeout (in milis)
 * v0.2 - added support for waitForLoad option
 * v0.1 - first version, yay!
 
