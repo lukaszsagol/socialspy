@@ -27,8 +27,8 @@ Minimal installation is possible with only two lines, placed after
 Google Analytics tracking code:
 
 ```html
-<script src='PATH_TO_JS/simplespy.min.js'></script>
-<script>simpleSpy.init()</script>
+<script src='PATH_TO_JS/socialspy.min.js'></script>
+<script>socialSpy.init()</script>
 ```
 
 By default all service handlers are enabled, which means you will also
