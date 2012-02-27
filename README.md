@@ -8,6 +8,10 @@ JS handler.
 The whole idea of discovering login status of social services is based
 on [@TomAnthonySEO](http://twitter.com/TomAnthonySEO) [blog post](http://www.tomanthony.co.uk/blog/detect-visitor-social-networks/).
 
+## IMPORTANT
+All versions prior to v0.4 actually didn't work. You can read about the
+issue [on my blog](http://hipster.pandeveloper.com/post/18396238141/custom-variables-setcustomvar-not-showing-in).
+
 ## Demo
 Want to see it in action? [Click for demo](http://zgryw.github.com/socialspy/demo.html).
 
@@ -77,6 +81,17 @@ functions straight to the Browser Console. Default: false
 checking will be delayed for given time (in miliseconds). Otherwise
 (for true value) it will be attached to window 'load' event. Default: true
 
+**trackWithEvent** *Booelan* When true, *_trackEvent* will be called
+after *_setCustomVar* to deliver Custom Variable to Google Analytics.
+
+**trackWithPageview** *Boolean* When true, *_trackPageview* will be
+called to submit Custom Variables to Google Analytics servers. If using
+this one, remeber to delete *_trackPageview* from Google
+Analytics snippet.
+
+Most probably you would want to only one of **trackWithPageview** and
+**trackWithEvent** to be true.
+
 ### Example of use
 
 ```javascript
@@ -142,6 +157,7 @@ as described in Step 1 of [this tutorial](https://developers.facebook.com/docs/o
 ## Information
 ### History
 
+* v0.4 - now it should even work!
 * v0.3 - waitForLoad now supports timeout (in milis)
 * v0.2 - added support for waitForLoad option
 * v0.1 - first version, yay!

@@ -1,4 +1,5 @@
 var socialSpy = {
+  VERSION: 'v0.4',
   FACEBOOK_ON: 'onfacebook',
   FACEBOOK_OFF: 'offfacebook',
   GOOGLE_ON: 'ongoogle',
@@ -16,6 +17,8 @@ var socialSpy = {
   services: [],
   debug: false,
   customSubmit: null,
+  trackWithEvent: true,
+  trackWithPageview: false,
   waitForLoad: true,
 
   init: function(opts) {
@@ -31,6 +34,8 @@ var socialSpy = {
     socialSpy.variableName  = opts.variableName || 'Social Spy';
     socialSpy.waitForLoad   = typeof opts.waitForLoad === "undefined" ? true : opts.waitForLoad;
     socialSpy.customSubmit  = opts.customSubmit;
+    socialSpy.trackWithEvent = typeof opts.trackWithEvent === "undefined" ? true : opts.trackWithEvent;
+    socialSpy.trackWithPageview = typeof opts.trackWithEvent === "undefined" ? false : opts.trackWithPageview;
 
 
     if (socialSpy.services.length > 0) {
@@ -119,6 +124,8 @@ var socialSpy = {
       statusStrings.push(socialSpy[key])
     }
     _gaq.push(['_setCustomVar', socialSpy.variableIndex, socialSpy.variableName, statusStrings.join(socialSpy.SEPARATOR), 2]);
+    if (trackWithPageview)  { _gaq.push(['_trackPageview']) }
+    if (trackWithEvent)     { _gaq.push(['_trackEvent', 'Social Spy', 'Status', 'onfacebook;ontwitter;ongoogle;offgplus', 0, true]) }
   },
 
   installImageCheck: function(url, service) {
