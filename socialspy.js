@@ -124,8 +124,8 @@ var socialSpy = {
       statusStrings.push(socialSpy[key])
     }
     _gaq.push(['_setCustomVar', socialSpy.variableIndex, socialSpy.variableName, statusStrings.join(socialSpy.SEPARATOR), 2]);
-    if (trackWithPageview)  { _gaq.push(['_trackPageview']) }
-    if (trackWithEvent)     { _gaq.push(['_trackEvent', 'Social Spy', 'Status', 'onfacebook;ontwitter;ongoogle;offgplus', 0, true]) }
+    if (socialSpy.trackWithPageview)  { _gaq.push(['_trackPageview']) }
+    if (socialSpy.trackWithEvent)     { _gaq.push(['_trackEvent', 'Social Spy', 'Status', 'onfacebook;ontwitter;ongoogle;offgplus', 0, true]) }
   },
 
   installImageCheck: function(url, service) {
